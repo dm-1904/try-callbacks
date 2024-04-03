@@ -35,9 +35,43 @@ console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper))
 *******************************************************************************/
 
 function alternatingMap(array, cb1, cb2) {
-  // Your code here 
+  let arr = []
+  for(let i = 0; i < array.length; i++){
+    let el= array[i]
+    if(i === 0) {
+      arr.push(cb1(el))
+    }
+    else if (i % 2 === 1){
+      arr.push(cb2(el))
+    }
+    else if (i % 2 === 0){
+      arr.push(cb1(el))
+    }
+  }
+
+  return arr
 }
 
+let triple = function (n) {
+  return 3 * n;
+};
+
+let half = function (n) {
+  return n / 2;
+};
+console.log(alternatingMap([7, 3, 2, 9, 8], triple, half));
+// [ 21, 1.5, 6, 4.5, 24 ]
+
+
+let yell = function (s) {
+  return s.toUpperCase() + '!';
+};
+
+let whisper = function (s) {
+  return '..' + s.toLowerCase() + '..';
+};
+console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper));
+// [ 'HEY!', '..everyone..', 'WHATS!', '..up??..' ]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = alternatingMap;
