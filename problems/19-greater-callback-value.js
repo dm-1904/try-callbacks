@@ -19,7 +19,11 @@ console.log(greaterCallbackValue(9, Math.sqrt, doubler));   // 18
 *******************************************************************************/
 
 function greaterCallbackValue(val, cb1, cb2) {
-  // Your code here 
+  let result = cb1(val)
+  if(result < cb2(val)){
+    result = cb2(val)
+  }
+  return result 
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
